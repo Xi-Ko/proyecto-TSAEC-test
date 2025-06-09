@@ -44,7 +44,7 @@
           class="mb-10 text-center animate__animated animate__fadeInDown"
         >
           <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
-            <i class="fas fa-comments text-cyan-500"></i> Comunidad TSAEC
+            <i class="fas fa-comments text-primary"></i> Comunidad TSAEC
           </h1>
           <p class="text-gray-600 text-lg mb-6">
             Tu voz es importante para mejorar la movilidad en Calama
@@ -61,7 +61,7 @@
           <!-- Contador de Comentarios -->
           <div class="flex justify-center gap-6 text-sm text-gray-600">
             <div>
-              <i class="fas fa-comments text-cyan-500"></i>
+              <i class="fas fa-comments text-primary"></i>
               <span id="totalComentarios">0</span> comentarios
             </div>
             <div>
@@ -80,105 +80,85 @@
         </section>
 
         <!-- Formulario de Nuevo Comentario -->
-        <section id="comment-form-section" class="mb-12">
-          <div class="glass p-6 sm:p-8 rounded-xl shadow-lg">
-            <h2
-              class="text-xl sm:text-2xl font-semibold text-cyan-700 mb-6 flex items-center"
-            >
-              <i class="fas fa-pencil-alt mr-2"></i>
-              <span>Comparte tu opinión</span>
+        <section id="comment-form-section" class="mb-12 animate__animated animate__fadeInUp">
+          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-slate-100">
+            <h2 class="text-xl sm:text-2xl font-semibold text-primary mb-6 flex items-center">
+              <i class="fas fa-pencil-alt mr-3"></i>
+              <span>Comparte tu Opinión</span>
             </h2>
 
-            <form id="commentForm" class="space-y-6">
+            <form id="commentForm" class="space-y-5">
               <!-- Categorías -->
-              <div class="space-y-2">
-                <label class="block text-sm font-medium text-gray-700"
-                  >Selecciona una categoría:</label
-                >
+              <div class="space-y-3">
+                <label class="block text-sm font-medium text-neutral-700">
+                  1. Selecciona una categoría para tu comentario:
+                </label>
                 <div class="flex flex-wrap gap-3">
-                  <button
-                    type="button"
-                    class="categoria-btn categoria-idea press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
-                    data-categoria="idea"
-                  >
-                    <i class="fas fa-lightbulb mr-2"></i>Idea
+                  <button type="button" class="categoria-btn press-effect flex items-center px-4 py-2.5 rounded-lg text-sm font-medium border-2 border-transparent transition-all duration-150 ease-in-out bg-slate-100 hover:bg-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary" data-categoria="idea">
+                    <i class="fas fa-lightbulb mr-2 text-yellow-400"></i>Idea
                   </button>
-                  <button
-                    type="button"
-                    class="categoria-btn categoria-problema press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
-                    data-categoria="problema"
-                  >
-                    <i class="fas fa-exclamation-circle mr-2"></i>Problema
+                  <button type="button" class="categoria-btn press-effect flex items-center px-4 py-2.5 rounded-lg text-sm font-medium border-2 border-transparent transition-all duration-150 ease-in-out bg-slate-100 hover:bg-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary" data-categoria="problema">
+                    <i class="fas fa-exclamation-circle mr-2 text-red-400"></i>Problema
                   </button>
-                  <button
-                    type="button"
-                    class="categoria-btn categoria-sugerencia press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
-                    data-categoria="sugerencia"
-                  >
-                    <i class="fas fa-star mr-2"></i>Sugerencia
+                  <button type="button" class="categoria-btn press-effect flex items-center px-4 py-2.5 rounded-lg text-sm font-medium border-2 border-transparent transition-all duration-150 ease-in-out bg-slate-100 hover:bg-slate-200 text-slate-700 focus:outline-none focus:ring-2 focus:ring-primary" data-categoria="sugerencia">
+                    <i class="fas fa-star mr-2 text-green-400"></i>Sugerencia
                   </button>
                 </div>
+                <input type="hidden" id="categoriaSeleccionada" name="categoria" value="idea">
               </div>
 
               <!-- Área de texto -->
-              <div class="space-y-2">
-                <label
-                  for="comentarioTexto"
-                  class="block text-sm font-medium text-gray-700"
-                >
-                  Tu mensaje:
+              <div class="space-y-3">
+                <label for="comentarioTexto" class="block text-sm font-medium text-neutral-700">
+                  2. Escribe tu mensaje:
                 </label>
                 <div class="relative">
-                  <textarea
-                    id="comentarioTexto"
-                    name="comentarioTexto"
-                    rows="4"
-                    class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-white/80 backdrop-blur-sm resize-none transition-all text-gray-700"
-                    placeholder="Escribe aquí tu idea, problema o sugerencia..."
-                    maxlength="280"
-                  ></textarea>
-                  <div
-                    class="absolute bottom-3 right-3 text-sm text-gray-500"
-                    id="contadorCaracteres"
-                  >
-                    <span id="caracteresActuales">0</span>/280
+                  <textarea id="comentarioTexto" name="comentarioTexto" rows="4" class="w-full p-3 border border-slate-300 rounded-lg shadow-sm focus:ring-2 focus:ring-primary focus:border-primary bg-white transition-colors duration-150 text-neutral-700 placeholder-neutral-400 resize-none" placeholder="Escribe aquí tu idea, problema o sugerencia..." maxlength="280"></textarea>
+                  <div id="contadorComentario" class="absolute bottom-2 right-3 text-xs text-neutral-500">
+                    0/280
                   </div>
                 </div>
               </div>
 
+              <!-- Calificación por Estrellas -->
+              <div class="space-y-3">
+                <label class="block text-sm font-medium text-neutral-700">
+                  3. Califica tu experiencia o la relevancia de tu aporte (opcional):
+                </label>
+                <div id="ratingStars" class="flex items-center justify-start space-x-1 py-1 text-2xl">
+                  <!-- Las estrellas se generan aquí por JS -->
+                </div>
+              </div>
+
               <!-- Botones de acción -->
-              <div class="flex flex-wrap gap-4 justify-end">
-                <button
-                  type="button"
-                  id="limpiarBtn"
-                  class="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors duration-200"
-                >
-                  <i class="fas fa-redo-alt mr-2"></i>Limpiar
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-end gap-3 pt-3 border-t border-slate-200 mt-3">
+                <button type="button" id="limpiarBtn" class="px-5 py-2.5 rounded-lg text-sm font-medium text-neutral-700 bg-slate-100 hover:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-400 transition-all duration-150 ease-in-out order-2 sm:order-1">
+                  <i class="fas fa-redo-alt mr-1.5"></i>Limpiar Formulario
                 </button>
-                <button
-                  type="submit"
-                  class="px-6 py-2 bg-cyan-500 text-white rounded-lg shadow-md hover:bg-cyan-600 transform transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  <i class="fas fa-paper-plane mr-2"></i>Enviar
+                <button type="submit" class="px-6 py-2.5 bg-primary hover:bg-primary-dark text-white rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-primary-dark transform transition-all duration-150 ease-in-out hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed order-1 sm:order-2">
+                  <i class="fas fa-paper-plane mr-1.5"></i>Publicar Comentario
                 </button>
               </div>
+              <div id="formFeedback" class="text-center text-sm mt-3"></div> <!-- Feedback para el formulario -->
             </form>
           </div>
         </section>
 
         <!-- Lista de Comentarios -->
-        <section id="comments-list-section">
-          <div class="flex justify-between items-center mb-6">
-            <h2 class="text-xl font-semibold text-gray-800">
-              <i class="fas fa-list-ul text-cyan-500 mr-2"></i>Comentarios
+        <section id="comments-list-section" class="mt-16">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+            <h2 class="text-xl sm:text-2xl font-semibold text-neutral-800">
+              <i class="fas fa-list-ul text-primary mr-2"></i>Comentarios de la Comunidad
             </h2>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3">
+              <label for="orderSelect" class="text-sm font-medium text-neutral-700">Ordenar por:</label>
               <select
-                id="ordenarPor"
-                class="bg-white/80 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                id="orderSelect"
+                name="orderSelect"
+                class="bg-white border border-slate-300 rounded-lg px-3 py-2 text-sm text-neutral-700 focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-150"
               >
                 <option value="recientes">Más recientes</option>
-                <option value="apoyos">Más apoyados</option>
+                <!-- <option value="apoyos">Más apoyados</option> TODO: Reimplementar si es necesario con API -->
                 <option value="antiguos">Más antiguos</option>
               </select>
             </div>
@@ -191,7 +171,7 @@
 
           <!-- Mensaje cuando no hay comentarios -->
           <div id="noComments" class="glass p-8 text-center rounded-xl hidden">
-            <i class="fas fa-comments text-cyan-500 text-4xl mb-4"></i>
+            <i class="fas fa-comments text-primary text-4xl mb-4"></i>
             <p class="text-gray-600 text-lg">
               ¡Sé el primero en compartir tu opinión!
             </p>

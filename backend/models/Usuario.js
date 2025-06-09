@@ -44,6 +44,10 @@ const Usuario = sequelize.define('Usuario', {
   ultima_conexion: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
+  },
+  avatar: {
+    type: DataTypes.STRING,
+    allowNull: true
   }
 }, {
   timestamps: true,

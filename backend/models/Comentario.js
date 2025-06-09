@@ -49,6 +49,14 @@ const Comentario = sequelize.define('Comentario', {
   estado: {
     type: DataTypes.ENUM('activo', 'oculto', 'eliminado'),
     defaultValue: 'activo'
+  },
+  calificacion: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    validate: {
+      min: 1,
+      max: 5
+    }
   }
 }, {
   timestamps: true,

@@ -44,7 +44,7 @@ const verificarPropietario = (req, res, next) => {
 // Obtener todos los comentarios principales (no respuestas)
 router.get('/', async (req, res) => {
   try {
-    const { pagina = 1, limite = 10 } = req.query;
+    const { pagina = 1, limite = 10, incluirAvatar = false } = req.query;
     const offset = (pagina - 1) * limite;
     
     const comentarios = await Comentario.findAndCountAll({
@@ -55,7 +55,7 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Usuario,
-          attributes: ['id', 'nombre']
+          attributes: ['id', 'nombre', 'avatar']
         }
       ],
       order: [['creado_en', 'DESC']],
@@ -92,7 +92,7 @@ router.get('/:id', async (req, res) => {
       include: [
         {
           model: Usuario,
-          attributes: ['id', 'nombre']
+          attributes: ['id', 'nombre', 'avatar']
         },
         {
           model: Comentario,
@@ -103,7 +103,7 @@ router.get('/:id', async (req, res) => {
           include: [
             {
               model: Usuario,
-              attributes: ['id', 'nombre']
+              attributes: ['id', 'nombre', 'avatar']
             }
           ],
           required: false
@@ -134,7 +134,7 @@ router.get('/:id', async (req, res) => {
 // Crear un nuevo comentario
 router.post('/', verificarToken, async (req, res) => {
   try {
-    const { contenido, comentario_padre_id } = req.body;
+    const { contenido, comentario_padre_id, calificacion } = req.body;
     
     // Validaciones básicas
     if (!contenido) {
@@ -159,7 +159,8 @@ router.post('/', verificarToken, async (req, res) => {
     const nuevoComentario = await Comentario.create({
       usuario_id: req.usuario.id,
       contenido,
-      comentario_padre_id: comentario_padre_id || null
+      comentario_padre_id: comentario_padre_id || null,
+      calificacion: calificacion || null // Añadir calificacion
     });
     
     // Obtener el comentario con datos del usuario
@@ -167,7 +168,7 @@ router.post('/', verificarToken, async (req, res) => {
       include: [
         {
           model: Usuario,
-          attributes: ['id', 'nombre']
+          attributes: ['id', 'nombre', 'avatar'] // Añadir avatar
         }
       ]
     });
@@ -303,7 +304,7 @@ router.get('/:id/respuestas', async (req, res) => {
       include: [
         {
           model: Usuario,
-          attributes: ['id', 'nombre']
+          attributes: ['id', 'nombre', 'avatar'] // Añadir avatar
         }
       ],
       order: [['creado_en', 'ASC']],

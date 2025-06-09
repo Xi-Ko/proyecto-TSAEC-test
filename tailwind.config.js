@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#4CAF50',    // Verde principal - representa sostenibilidad
-        'primary-dark': '#2E7D32', // Verde oscuro
-        'primary-light': '#A5D6A7', // Verde claro
+        'primary': '#10B981',    // Verde principal - representa sostenibilidad
+        'primary-dark': '#0F9971', // Verde oscuro
+        'primary-light': '#A6E9D5', // Verde claro
         'secondary': '#1976D2',  // Azul - representa agua limpia/aire
         'secondary-dark': '#0D47A1', // Azul oscuro
         'secondary-light': '#90CAF9', // Azul claro
