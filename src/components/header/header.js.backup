@@ -1,0 +1,177 @@
+// Header Component JavaScript
+(function() {
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  // Función principal de inicialización
+  function initHeaderMenu() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const header = document.querySelector(".header-wave");
+  if (!menuToggle || !navLinks || !header) return;
+  menuToggle.addEventListener("click", function () {
+    menuToggle.classList.toggle("active");
+    navLinks.classList.toggle("active");
+  });
+  document.addEventListener("click", function (event) {
+    const isClickInside = header.contains(event.target);
+    if (!isClickInside && navLinks.classList.contains("active")) {
+      menuToggle.classList.remove("active");
+      navLinks.classList.remove("active");
+    }
+  });
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", function () {
+      menuToggle.classList.remove("active");
+      navLinks.classList.remove("active");
+    });
+  });
+  // Resalta el link activo
+  const currentPage = window.location.pathname;
+  navLinks.querySelectorAll("a").forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+};
+
+// Ocultar header al hacer scroll hacia abajo y mostrar al subir
+let lastScrollY = window.scrollY;
+let ticking = false;
+function handleHeaderScroll() {
+  const header = document.querySelector(".header-wave");
+  if (!header) return;
+  if (window.scrollY > lastScrollY && window.scrollY > 60) {
+    header.classList.add("hide-on-scroll");
+  } else {
+    header.classList.remove("hide-on-scroll");
+  }
+  lastScrollY = window.scrollY;
+  ticking = false;
+}
+window.addEventListener("scroll", function () {
+  if (!ticking) {
+    window.requestAnimationFrame(handleHeaderScroll);
+    ticking = true;
+  }
+});
+
+// --- Perfil rápido flotante ---
+function getUserProfile() {
+  // Simulación: puedes mejorar esto para usar localStorage o backend
+  return {
+    avatar:
+      localStorage.getItem("user_avatar") ||
+      "/frontend/src/assets/images/missa.webp",
+    nombre: localStorage.getItem("user_nombre") || "Usuario TSAEC",
+    comentarios: Number(localStorage.getItem("user_comentarios") || 0),
+    apoyos: Number(localStorage.getItem("user_apoyos") || 0),
+    sugerencias: Number(localStorage.getItem("user_sugerencias") || 0),
+  };
+}
+function showQuickProfilePopup() {
+  if (document.querySelector(".quick-profile-popup")) return;
+  const user = getUserProfile();
+  // Calcular centro de la pantalla
+  const winWidth = 440;
+  const winHeight = 420;
+  const left = Math.max(0, (window.innerWidth - winWidth) / 2);
+  const top = Math.max(40, (window.innerHeight - winHeight) / 2);
+  // Crear ventana flotante tipo navegador
+  const win = document.createElement("div");
+  win.className = "floating-window quick-profile-popup";
+  win.style.zIndex = 3000;
+  win.style.width = winWidth + "px";
+  win.style.left = left + "px";
+  win.style.top = top + "px";
+  win.innerHTML = `
+    <div class="browser-tab browser-tab-floating">
+      <span class="tab-title"><span class="tab-icon">🌐</span> Perfil rápido</span>
+      <button class="window-close" title="Cerrar">&#10005;</button>
+    </div>
+    <div class="window-content">
+      <img src="${user.avatar}" alt="Avatar" class="profile-avatar" style="display:block;margin:0 auto 10px auto;" />
+      <div class="profile-name">${user.nombre}</div>
+      <div class="profile-stats">
+        <span><b>${user.comentarios}</b> comentarios</span><br>
+        <span><b>${user.apoyos}</b> apoyos</span><br>
+        <span><b>${user.sugerencias}</b> sugerencias</span>
+      </div>
+      <button class="profile-config-btn">Configurar perfil completo</button>
+    </div>
+  `;
+  document.body.appendChild(win);
+  // Cerrar
+  win.querySelector(".window-close").onclick = () => win.remove();
+  // Traer al frente al hacer click
+  win.addEventListener("mousedown", () => {
+    win.style.zIndex = ++window.zCounter || 3001;
+  });
+  // Drag
+  const titlebar = win.querySelector(".browser-tab");
+  let offsetX,
+    offsetY,
+    dragging = false;
+  titlebar.addEventListener("mousedown", function (e) {
+    dragging = true;
+    win.style.zIndex = ++window.zCounter || 3001;
+    const rect = win.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    document.body.style.userSelect = "none";
+  });
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    let x = e.clientX - offsetX;
+    let y = e.clientY - offsetY;
+    // Limitar dentro del viewport
+    const maxX = window.innerWidth - win.offsetWidth;
+    const maxY = window.innerHeight - win.offsetHeight;
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+    win.style.left = x + "px";
+    win.style.top = y + "px";
+  });
+  document.addEventListener("mouseup", function () {
+    dragging = false;
+    document.body.style.userSelect = "";
+  });
+  // Ir a perfil completo
+  win.querySelector(".profile-config-btn").onclick = () => {
+    window.location.href = "/src/pages/perfil.html";
+  };
+}
+window.initQuickProfile = function () {
+  const btn = document.getElementById("profile-btn");
+  if (!btn) {
+    console.warn(
+      "[Perfil rápido] No se encontró el botón de perfil en el DOM."
+    );
+    return;
+  }
+  // Elimina listeners previos
+  btn.replaceWith(btn.cloneNode(true));
+  const newBtn = document.getElementById("profile-btn");
+  newBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    showQuickProfilePopup();
+  });
+};
+// Modifica showQuickProfilePopup para log de debug
+const _showQuickProfilePopup = showQuickProfilePopup;
+showQuickProfilePopup = function () {
+  console.log("[Perfil rápido] Intentando mostrar el popup...");
+  _showQuickProfilePopup();
+  if (document.querySelector(".quick-profile-popup")) {
+    console.log("[Perfil rápido] Popup creado correctamente.");
+  } else {
+    console.warn("[Perfil rápido] No se pudo crear el popup.");
+  }
+};
+
+// Inicialización automática para páginas con header estático (como index)
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.initHeaderMenu) window.initHeaderMenu();
+  if (window.initQuickProfile) window.initQuickProfile();
+});

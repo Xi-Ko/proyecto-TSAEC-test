@@ -1,0 +1,4 @@
+# Para integración OAuth de Google, instala la librería oficial:
+npm install google-auth-library
+
+# Esto permite verificar el token de Google enviado desde el frontend en el backend Node.js/Express.

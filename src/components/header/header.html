@@ -1,0 +1,120 @@
+<!-- Header Component con Tailwind CSS -->
+<style>
+  /* Estilos para la transición del menú móvil */
+  .mobile-menu {
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .mobile-menu:not(.hidden) {
+    opacity: 1;
+  }
+  
+  /* Prevenir scroll del body cuando el menú está abierto */
+  body.overflow-hidden {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Asegurar que el menú móvil esté por encima de otros elementos */
+  .mobile-menu {
+    z-index: 9999;
+  }
+</style>
+
+<div class="header-wave w-full backdrop-blur-sm bg-white/70 shadow-md transition-all duration-300">
+  <div class="container mx-auto px-4 py-4">
+    <nav class="flex items-center justify-between" aria-label="Navegación principal">
+      <!-- Logo de TSAEC -->
+      <a href="/index.html" class="flex items-center space-x-2 group" aria-label="Inicio de TSAEC">
+        <span class="text-2xl font-display font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent md:text-3xl transition-all duration-300 transform group-hover:scale-105">TSAEC</span>
+      </a>
+      
+      <!-- Botón de menú móvil -->
+      <button class="menu-toggle lg:hidden flex flex-col justify-center items-center w-12 h-12 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 text-primary-dark hover:from-primary/20 hover:to-accent/20 transition-all duration-300 shadow-sm hover:shadow" aria-expanded="false" aria-label="Abrir menú de navegación">
+        <span class="block w-6 h-0.5 bg-current mb-1.5 transition-transform duration-300"></span>
+        <span class="block w-5 h-0.5 bg-current mb-1.5 transition-opacity duration-300"></span>
+        <span class="block w-6 h-0.5 bg-current transition-transform duration-300"></span>
+      </button>
+      
+      <!-- Navegación escritorio -->
+      <ul class="hidden lg:flex items-center space-x-1">
+        <li class="nav-item">
+          <a href="/index.html" class="flex items-center px-4 py-2 rounded-full text-neutral-dark hover:text-primary hover:bg-primary/10 transition-colors duration-300">
+            <i class="fas fa-home mr-2"></i> Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/src/pages/explorar.html" class="flex items-center px-4 py-2 rounded-full text-neutral-dark hover:text-primary hover:bg-primary/10 transition-colors duration-300">
+            <i class="fas fa-compass mr-2"></i> Explorar
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/src/pages/equipo.html" class="flex items-center px-4 py-2 rounded-full text-neutral-dark hover:text-primary hover:bg-primary/10 transition-colors duration-300">
+            <i class="fas fa-users mr-2"></i> Equipo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/src/pages/acerca.html" class="flex items-center px-4 py-2 rounded-full text-neutral-dark hover:text-primary hover:bg-primary/10 transition-colors duration-300">
+            <i class="fas fa-info-circle mr-2"></i> Acerca
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/src/pages/comentarios.html" class="flex items-center px-4 py-2 rounded-full text-neutral-dark hover:text-primary hover:bg-primary/10 transition-colors duration-300">
+            <i class="fas fa-comments mr-2"></i> Comentarios
+          </a>
+        </li>
+        <li class="nav-item ml-2">
+          <button id="quick-profile-btn" class="flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105" aria-label="Abrir perfil rápido">
+            <i class="fas fa-user mr-2"></i> Mi Perfil
+          </button>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+  
+  <!-- Menú móvil (oculto por defecto) -->
+  <button id="quick-profile-btn-mobile" class="lg:hidden flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-primary to-accent text-white shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 mt-4 mb-2 w-full justify-center" aria-label="Abrir perfil rápido (móvil)">
+    <i class="fas fa-user mr-2"></i> Mi Perfil
+  </button>
+  <div class="mobile-menu hidden bg-white/90 backdrop-blur-md shadow-lg lg:hidden transition-all duration-300 overflow-hidden max-h-0 rounded-2xl mt-2 mx-4">
+    <nav class="container mx-auto px-4 py-5" aria-label="Navegación móvil">
+      <ul class="space-y-3 pb-4">
+        <li>
+          <a href="/index.html" class="flex items-center px-4 py-3 rounded-xl text-neutral-dark hover:text-primary hover:bg-primary/10 transition-all duration-300">
+            <i class="fas fa-home w-6 text-center mr-3 text-primary"></i> Inicio
+          </a>
+        </li>
+        <li>
+          <a href="/src/pages/explorar.html" class="flex items-center px-4 py-3 rounded-xl text-neutral-dark hover:text-primary hover:bg-primary/10 transition-all duration-300">
+            <i class="fas fa-compass w-6 text-center mr-3 text-primary"></i> Explorar
+          </a>
+        </li>
+        <li>
+          <a href="/src/pages/equipo.html" class="flex items-center px-4 py-3 rounded-xl text-neutral-dark hover:text-primary hover:bg-primary/10 transition-all duration-300">
+            <i class="fas fa-users w-6 text-center mr-3 text-primary"></i> Equipo
+          </a>
+        </li>
+        <li>
+          <a href="/src/pages/acerca.html" class="flex items-center px-4 py-3 rounded-xl text-neutral-dark hover:text-primary hover:bg-primary/10 transition-all duration-300">
+            <i class="fas fa-info-circle w-6 text-center mr-3 text-primary"></i> Acerca
+          </a>
+        </li>
+        <li>
+          <a href="/src/pages/comentarios.html" class="flex items-center px-4 py-3 rounded-xl text-neutral-dark hover:text-primary hover:bg-primary/10 transition-all duration-300">
+            <i class="fas fa-comments w-6 text-center mr-3 text-primary"></i> Comentarios
+          </a>
+        </li>
+        <li class="mt-6">
+          <button id="profile-btn-mobile" class="w-full flex items-center px-4 py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white transition-all duration-300 justify-center shadow-md hover:shadow-lg transform hover:translate-y-px" aria-label="Abrir perfil rápido" onclick="closeMobileMenu(); showQuickProfilePopup(); return false;">
+            <i class="fas fa-user mr-2"></i> Mi Perfil
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

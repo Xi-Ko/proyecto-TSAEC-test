@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visor de PDF - TSAEC</title>
+    <link rel="stylesheet" href="/src/styles/visor-pdf.css" />
+    <link rel="stylesheet" href="/src/js/pdfjs/web/viewer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/src/components/header/header.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #1a8d5f 0%, #115740 100%);
+        font-family: system-ui, -apple-system, sans-serif;
+        min-height: 100vh;
+      }
+
+      .ocean-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      #pdf-container {
+        width: 100%;
+        height: calc(100vh - 120px);
+        margin-top: 80px;
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border-radius: 12px 12px 0 0;
+        overflow: hidden;
+      }
+
+      #pdf-viewer {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .pdf-selector {
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 12px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .pdf-selector label {
+        color: #115740;
+        font-weight: 500;
+        font-size: 1.1rem;
+      }
+
+      .pdf-selector select {
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #1a8d5f;
+        font-size: 1rem;
+        min-width: 250px;
+        background: white;
+        color: #115740;
+        cursor: pointer;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .pdf-selector select:hover {
+        border-color: #115740;
+        box-shadow: 0 2px 8px rgba(26, 141, 95, 0.2);
+      }
+
+      .pdf-selector select:focus {
+        border-color: #115740;
+        box-shadow: 0 0 0 2px rgba(26, 141, 95, 0.2);
+      }
+
+      /* Personalización del visor PDF.js */
+      :root {
+        --toolbar-bg-color: #1a8d5f;
+        --toolbar-color: white;
+        --toolbar-border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      #toolbarContainer {
+        background: var(--toolbar-bg-color) !important;
+        border-bottom: 1px solid var(--toolbar-border-color) !important;
+      }
+
+      #toolbarViewer {
+        padding: 8px 16px !important;
+      }
+
+      .toolbarButton {
+        color: var(--toolbar-color) !important;
+        opacity: 0.9;
+        transition: all 0.3s ease !important;
+      }
+
+      .toolbarButton:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        opacity: 1;
+      }
+
+      /* Ocultar elementos no deseados */
+      #sidebarToggle,
+      #scaleSelect,
+      #pageRotateCcw,
+      #pageRotateCw,
+      #presentationMode,
+      #openFile,
+      #viewBookmark {
+        display: none !important;
+      }
+
+      .main-footer {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        text-align: center;
+        color: white;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .social-links {
+        margin-bottom: 10px;
+      }
+
+      .social-links a {
+        color: white;
+        font-size: 1.5rem;
+        margin: 0 10px;
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+
+      .social-links a:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ocean-overlay"></div>
+    <div id="header-container"></div>
+
+    <div class="pdf-selector">
+      <label for="pdf-select">Seleccionar documento:</label>
+      <select id="pdf-select">
+        <option
+          value="/src/assets/pdfs/Folleto-Transporte-Sustentable.pdf"
+        >
+          Folleto de Transporte Sustentable
+        </option>
+        <option value="/src/assets/pdfs/transporte sustentable.pdf">
+          Transporte Sustentable
+        </option>
+      </select>
+    </div>
+
+    <div id="pdf-container">
+      <iframe
+        id="pdf-viewer"
+        src="/src/js/pdfjs/web/viewer.html?file=/frontend/src/assets/pdfs/Folleto-Transporte-Sustentable.pdf"
+      ></iframe>
+    </div>
+
+    <footer class="main-footer">
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/tsaec_calama?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+      <p>&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="/src/js/pdfjs/build/pdf.js"></script>
+    <script src="/src/js/config/pdfjs-config.js"></script>
+    <script src="/src/components/header/header.js"></script>
+    <script>
+      // Manejar cambio de PDF
+      document
+        .getElementById("pdf-select")
+        .addEventListener("change", function (e) {
+          const iframe = document.getElementById("pdf-viewer");
+          iframe.src = `/src/js/pdfjs/web/viewer.html?file=${encodeURIComponent(
+            e.target.value
+          )}`;
+        });
+
+      // Cargar el header
+      fetch("/src/components/header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+          if (window.initQuickProfile) window.initQuickProfile();
+
+          // Initialize header functionality
+          const menuToggle = document.querySelector(".menu-toggle");
+          const navLinks = document.querySelector(".nav-links");
+          const header = document.querySelector(".header-wave");
+
+          if (menuToggle && navLinks && header) {
+            // Toggle menu
+            menuToggle.addEventListener("click", function () {
+              menuToggle.classList.toggle("active");
+              navLinks.classList.toggle("active");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function (event) {
+              const isClickInside = header.contains(event.target);
+              if (!isClickInside && navLinks.classList.contains("active")) {
+                menuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+              }
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll("a").forEach((link) => {
+              link.addEventListener("click", function () {
+                menuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+              });
+            });
+
+            // Add active class to current page link
+            const currentPage = window.location.pathname;
+            navLinks.querySelectorAll("a").forEach((link) => {
+              if (link.getAttribute("href") === currentPage) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+    </script>
+  </body>
+</html>

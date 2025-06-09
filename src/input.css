@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans text-neutral-dark;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Estilos para los gradientes de las olas */
+  .wave-gradient-1 {
+    fill: url(#gradient1);
+    opacity: 0.7;
+  }
+  
+  .wave-gradient-2 {
+    fill: url(#gradient2);
+    opacity: 0.7;
+  }
+  
+  .wave-gradient-3 {
+    fill: url(#gradient3);
+    opacity: 0.7;
+  }
+  
+  .gradient-stop-1-start {
+    stop-color: #8176af;
+    stop-opacity: 1;
+  }
+  
+  .gradient-stop-1-end {
+    stop-color: #c286a6;
+    stop-opacity: 1;
+  }
+  
+  .gradient-stop-2-start {
+    stop-color: #6b7fd7;
+    stop-opacity: 1;
+  }
+  
+  .gradient-stop-2-end {
+    stop-color: #f97794;
+    stop-opacity: 1;
+  }
+  
+  .gradient-stop-3-start {
+    stop-color: #623aa2;
+    stop-opacity: 1;
+  }
+  
+  .gradient-stop-3-end {
+    stop-color: #f97794;
+    stop-opacity: 1;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center px-5 py-3 rounded-lg font-medium transition-all duration-300;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white hover:bg-secondary-dark;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-amber-700;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300;
+  }
+  
+  .eco-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-xl shadow-md border border-primary-light/30 overflow-hidden transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-dark;
+  }
+
+  .section-subtitle {
+    @apply text-xl text-neutral-dark/80 mb-8 max-w-3xl mx-auto;
+  }
+}
+
+/* Animación personalizada para elementos que aparecen al hacer scroll */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animaciones con retrasos específicos */
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.delay-1500 {
+  animation-delay: 1.5s;
+}
+
+.delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Utilidades adicionales */
+@layer utilities {
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  
+  /* Gradientes para SVG en equipo.html */
+  .gradient-1 {
+    stop-color: #8176af;
+    stop-opacity: 1;
+  }
+  
+  .gradient-1-end {
+    stop-color: #c286a6;
+    stop-opacity: 1;
+  }
+  
+  .gradient-2 {
+    stop-color: #6b7fd7;
+    stop-opacity: 1;
+  }
+  
+  .gradient-2-end {
+    stop-color: #f97794;
+    stop-opacity: 1;
+  }
+  
+  .gradient-3 {
+    stop-color: #623aa2;
+    stop-opacity: 1;
+  }
+  
+  .gradient-3-end {
+    stop-color: #f97794;
+    stop-opacity: 1;
+  }
+}

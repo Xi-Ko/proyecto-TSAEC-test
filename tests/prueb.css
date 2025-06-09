@@ -1,0 +1,117 @@
+body {
+  background: #e9ecef;
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+.btn-new-window {
+  padding: 12px 28px;
+  background: #2f7c58;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.btn-new-window:hover {
+  background: #245e43;
+}
+.floating-window {
+  position: fixed;
+  top: 120px;
+  left: 120px;
+  width: 420px;
+  min-width: 260px;
+  max-width: 90vw;
+  min-height: 180px;
+  max-height: 80vh;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  border: 1.5px solid #b7b7b7;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: popIn 0.25s cubic-bezier(0.4, 1.6, 0.6, 1) both;
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.window-titlebar {
+  background: linear-gradient(90deg, #2f7c58 60%, #4bbd8f 100%);
+  color: #fff;
+  padding: 0 16px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+  font-weight: 500;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid #e0e0e0;
+  position: relative;
+}
+.window-titlebar .window-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.window-titlebar .window-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 0 6px;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.window-titlebar .window-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.window-content {
+  padding: 22px 20px 18px 20px;
+  flex: 1;
+  overflow: auto;
+  color: #222;
+  font-size: 1.05rem;
+  background: #f8fafb;
+}
+@media (max-width: 600px) {
+  .floating-window {
+    width: 98vw;
+    left: 1vw !important;
+    min-width: 0;
+    max-width: 99vw;
+  }
+  .window-content {
+    padding: 12px 6px 10px 10px;
+    font-size: 0.98rem;
+  }
+}
+
+
+.miniatura {
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+}

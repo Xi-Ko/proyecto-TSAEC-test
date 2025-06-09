@@ -1,0 +1,408 @@
+/* documento.css: Copia de style.css para uso exclusivo de documento.html */
+:root {
+  --primary-color: #2ecc71;
+  --secondary-color: #27ae60;
+  --accent-color: #3498db;
+  --text-color: #2c3e50;
+  --background-color: #ecf0f1;
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(26, 42, 108, 0.4), rgba(50, 50, 100, 0.4)),
+    url("/src/assets/images/Earth-vangogh.webp") no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #fff;
+}
+
+.ocean-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/frontend/src/assets/images/Earth-vangogh.webp");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.doc-main {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.doc-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.doc-hero h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.doc-desc {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.doc-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.doc-card {
+  background: rgba(34, 34, 34, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(34, 153, 84, 0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 260px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.doc-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(34, 153, 84, 0.15);
+}
+
+.doc-card i {
+  font-size: 2.5rem;
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+
+.doc-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.doc-card p {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.doc-btn {
+  display: inline-block;
+  background: #2ecc71;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(34, 153, 84, 0.08);
+}
+
+.doc-btn:hover {
+  background: #176d3b;
+  box-shadow: 0 4px 16px 0 rgba(34, 153, 84, 0.15);
+}
+
+.doc-footer {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .doc-cards {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .doc-main {
+    padding: 4.5rem 0.2rem 0.5rem 0.2rem;
+    min-height: calc(100vh - 100px);
+    justify-content: center;
+  }
+  .doc-card {
+    min-width: 220px;
+    max-width: 95vw;
+    padding: 1.2rem 0.7rem 1rem 0.7rem;
+  }
+  .doc-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Sección hero */
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Tarjetas de características */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.feature-card p {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+/* Botones */
+.cta-button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--secondary-color);
+}
+
+/* Sección de impacto */
+.impact-section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.impact-section h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stat {
+  padding: 1.5rem;
+}
+
+.stat i {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.stat h3,
+.stat p {
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Tarjetas de vidrio */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(3px);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s, backdrop-filter 0.3s;
+}
+
+/* Footer */
+.main-footer {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.social-links {
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--primary-color);
+}
+
+.main-footer p {
+  color: white;
+}
+
+/* Contador de visitas */
+.visit-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.visit-counter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.visit-counter i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.counter-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.documento-container {
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(6px);
+  border-radius: 18px;
+  padding: 36px 24px 28px 24px;
+  margin: 40px auto;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+  border: 1.5px solid rgba(255, 255, 255, 0.13);
+  text-align: center;
+}
+.documento-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+.documento-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.documento-option {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+}
+.documento-option:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(31, 38, 135, 0.22);
+  background: rgba(255, 255, 255, 0.23);
+}
+.documento-option i {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.documento-option h3 {
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+.documento-option p {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+.documento-option .btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+.documento-option .btn:hover {
+  background: var(--secondary-color);
+}

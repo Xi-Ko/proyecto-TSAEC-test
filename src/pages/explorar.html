@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explorar - TSAEC</title>
+    <meta
+      name="description"
+      content="Explora alternativas de transporte sustentable en Calama con TSAEC. Beneficios, impacto y soluciones ecológicas."
+    />
+    <meta property="og:title" content="Explorar - TSAEC" />
+    <meta
+      property="og:description"
+      content="Explora alternativas de transporte sustentable en Calama con TSAEC. Beneficios, impacto y soluciones ecológicas."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CL" />
+    
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="/src/components/header/header.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Animaciones -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body class="font-body text-neutral-dark bg-neutral-lightest min-h-screen flex flex-col bg-explorar-bg bg-cover bg-fixed bg-center">
+    <!-- Header -->
+    <header id="header-container" class="fixed top-0 left-0 right-0 z-50"></header>
+    <!-- Hero section con overlay semitransparente -->
+    <main class="container mx-auto px-6 pt-24 pb-12" id="main-content" tabindex="-1">
+      <!-- Sección Hero -->
+      <section class="relative py-16 px-6 mb-10 rounded-3xl overflow-hidden bg-gradient-to-r from-primary/10 to-secondary/10 backdrop-blur-md border border-white/10 shadow-xl" data-aos="fade-up">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5 z-0"></div>
+        <div class="relative z-10 text-center max-w-3xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 flex items-center justify-center gap-3">
+            <i class="fas fa-globe-americas text-accent" aria-hidden="true"></i> 
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Explora el Transporte Sustentable</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto">
+            Descubre cómo las alternativas ecológicas están transformando Calama y el mundo
+          </p>
+        </div>
+      </section>
+      <!-- Características principales -->
+      <section class="mb-16" aria-label="Características principales" data-aos="fade-up">
+        <h2 class="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Características Principales</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Tarjeta 1 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-primary/10 transition-all hover:-translate-y-2 hover:shadow-xl duration-300" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-primary/20 text-primary mb-4 mx-auto">
+              <i class="fas fa-bicycle text-3xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-center text-primary">Bicicletas y Ciclovías</h3>
+            <p class="text-gray-700 text-center">
+              Fomentan la movilidad activa, reduciendo la huella de carbono y mejorando la salud física y mental de los usuarios.
+            </p>
+          </div>
+          
+          <!-- Tarjeta 2 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-secondary/10 transition-all hover:-translate-y-2 hover:shadow-xl duration-300" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-secondary/20 text-secondary mb-4 mx-auto">
+              <i class="fas fa-bus text-3xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-center text-secondary">Transporte Público Eléctrico</h3>
+            <p class="text-gray-700 text-center">
+              Menos emisiones y mayor eficiencia energética para un futuro más limpio y sustentable en nuestra ciudad.
+            </p>
+          </div>
+          
+          <!-- Tarjeta 3 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-accent/10 transition-all hover:-translate-y-2 hover:shadow-xl duration-300" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-accent/20 text-accent mb-4 mx-auto">
+              <i class="fas fa-car-side text-3xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-center text-accent">Vehículos Compartidos</h3>
+            <p class="text-gray-700 text-center">
+              Reducen la congestión y optimizan el uso de recursos urbanos, maximizando la eficiencia del transporte.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Beneficios del Transporte Sustentable -->
+      <section 
+        class="mb-16 bg-white/30 backdrop-blur-md rounded-3xl p-10 shadow-lg overflow-hidden relative border border-white/20"
+        aria-label="Beneficios del Transporte Sustentable"
+        data-aos="fade-up"
+      >
+        <!-- Decoración de fondo -->
+        <div class="absolute -bottom-10 -right-10 w-56 h-56 bg-gradient-to-tl from-primary/10 to-transparent rounded-full blur-2xl"></div>
+        <div class="absolute -top-10 -left-10 w-56 h-56 bg-gradient-to-br from-secondary/10 to-transparent rounded-full blur-2xl"></div>
+        
+        <h2 class="text-3xl font-bold text-center mb-10 flex items-center justify-center gap-3">
+          <i class="fas fa-heart text-pink-500" aria-hidden="true"></i> 
+          <span class="bg-gradient-to-r from-pink-500 to-accent bg-clip-text text-transparent">Beneficios del Transporte Sustentable</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+          <!-- Beneficio 1 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-pink-100" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-14 h-14 rounded-full bg-pink-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-heartbeat text-pink-500 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-pink-600 mb-3">Mejora la Salud</h3>
+            <p class="text-gray-700 text-center">
+              Reduce la contaminación del aire y promueve la actividad física, mejorando la salud respiratoria y cardiovascular de toda la comunidad.
+            </p>
+          </div>
+          
+          <!-- Beneficio 2 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-primary/10" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-leaf text-green-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-green-600 mb-3">Reduce Emisiones</h3>
+            <p class="text-gray-700 text-center">
+              Disminuye significativamente las emisiones de gases de efecto invernadero, contribuyendo a combatir el cambio climático global.
+            </p>
+          </div>
+          
+          <!-- Beneficio 3 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-yellow-100" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center mb-4 mx-auto">
+              <i class="fas fa-piggy-bank text-yellow-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-yellow-600 mb-3">Ahorro Económico</h3>
+            <p class="text-gray-700 text-center">
+              Reduce gastos en combustible, mantenimiento y estacionamiento, generando ahorros significativos a largo plazo para individuos y comunidades.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Factores que contribuyen a la reducción de CO₂ -->
+      <section 
+        class="mb-16 bg-secondary/10 backdrop-blur-md rounded-3xl p-10 shadow-lg border border-white/10 relative overflow-hidden"
+        aria-label="Factores que contribuyen a la reducción de CO₂"
+        data-aos="fade-up"
+      >
+        <!-- Decoración de fondo -->
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary/5 rounded-full blur-3xl z-0"></div>
+        
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold text-center mb-10 flex items-center justify-center gap-3">
+            <i class="fas fa-balance-scale text-secondary" aria-hidden="true"></i> 
+            <span class="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">Factores que contribuyen a la reducción de CO₂</span>
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Factor 1 -->
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-blue-100" data-aos="fade-up" data-aos-delay="100">
+              <div class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mb-4 mx-auto">
+                <i class="fas fa-city text-blue-600 text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center text-blue-600 mb-3">Alta densidad urbana</h3>
+              <p class="text-gray-700 text-center">
+                Facilita el transporte público y reduce el uso de automóviles privados, optimizando recursos y espacios urbanos.
+              </p>
+            </div>
+            
+            <!-- Factor 2 -->
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-indigo-100" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center mb-4 mx-auto">
+                <i class="fas fa-road text-indigo-600 text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center text-indigo-600 mb-3">Infraestructura sustentable</h3>
+              <p class="text-gray-700 text-center">
+                Carriles para bicicletas, sistemas de transporte eléctrico, áreas peatonales y espacios verdes integrales.
+              </p>
+            </div>
+            
+            <!-- Factor 3 -->
+            <div class="bg-white/60 backdrop-blur-sm rounded-xl p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg duration-300 border border-cyan-100" data-aos="fade-up" data-aos-delay="300">
+              <div class="w-14 h-14 rounded-full bg-cyan-100 flex items-center justify-center mb-4 mx-auto">
+                <i class="fas fa-bolt text-cyan-600 text-2xl" aria-hidden="true"></i>
+              </div>
+              <h3 class="text-xl font-semibold text-center text-cyan-600 mb-3">Energías renovables</h3>
+              <p class="text-gray-700 text-center">
+                Utilización de fuentes limpias y renovables para la generación de electricidad que alimenta los sistemas de transporte.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Impacto y Estadísticas -->
+      <section 
+        class="mb-16 bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-md rounded-3xl p-10 shadow-lg border border-white/10 relative overflow-hidden"
+        aria-label="Impacto y Estadísticas"
+        data-aos="fade-up"
+      >
+        <h2 class="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-3">
+          <i class="fas fa-chart-bar text-accent" aria-hidden="true"></i> 
+          <span class="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">Impacto y Estadísticas</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <!-- Estadística 1 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-md border border-primary/10 flex flex-col items-center text-center transition duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+              <i class="fas fa-bus text-blue-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-4xl font-bold text-primary mb-2 counter" data-count="30">30%</h3>
+            <p class="text-gray-700">Reducción de emisiones de CO₂ al usar transporte público</p>
+          </div>
+          
+          <!-- Estadística 2 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-md border border-green-100 flex flex-col items-center text-center transition duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+              <i class="fas fa-bicycle text-green-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-4xl font-bold text-green-600 mb-2 counter" data-count="70">70%</h3>
+            <p class="text-gray-700">Menos espacio urbano requerido por bicicletas vs. automóviles</p>
+          </div>
+          
+          <!-- Estadística 3 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-md border border-secondary/10 flex flex-col items-center text-center transition duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+              <i class="fas fa-car text-indigo-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-4xl font-bold text-indigo-600 mb-2 counter" data-count="80">80%</h3>
+            <p class="text-gray-700">Reducción de costos de mantenimiento en vehículos eléctricos</p>
+          </div>
+          
+          <!-- Estadística 4 -->
+          <div class="bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-md border border-accent/10 flex flex-col items-center text-center transition duration-300 hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+            <div class="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mb-4">
+              <i class="fas fa-users text-amber-600 text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="text-4xl font-bold text-amber-600 mb-2">5<span class="text-2xl">x</span></h3>
+            <p class="text-gray-700">Mayor eficiencia energética del transporte compartido</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer-container" class="mt-10"></footer>
+    
+    <!-- Scripts -->
+    <script>
+      // Cargar header dinámico
+      fetch("/src/components/header/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header-container").innerHTML = data;
+          // Inicializar después de que el DOM se actualice
+          setTimeout(() => {
+            if (window.initHeaderMenu) window.initHeaderMenu();
+            if (window.initQuickProfile) window.initQuickProfile();
+          }, 100);
+        })
+        .catch((error) => console.error("Error cargando el header:", error));
+        
+      // Cargar footer dinámico
+      fetch("/dist/components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        })
+        .catch((error) => console.error("Error cargando el footer:", error));
+    </script>
+
+    <!-- Scripts -->
+    <script src="/src/components/header/header.js"></script>
+    
+    <!-- Script de Animaciones AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // Inicializar AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        easing: 'ease-in-out'
+      });
+      
+      // Función para animar contadores
+      document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.counter');
+        const options = {
+          threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = parseInt(counter.getAttribute('data-count'));
+              let count = 0;
+              const updateCount = () => {
+                if (count < target) {
+                  count++;
+                  counter.textContent = count + '%';
+                  setTimeout(updateCount, 20);
+                }
+              };
+              updateCount();
+              observer.unobserve(counter);
+            }
+          });
+        }, options);
+        
+        counters.forEach(counter => {
+          observer.observe(counter);
+        });
+      });
+    </script>
+  </body>
+</html>

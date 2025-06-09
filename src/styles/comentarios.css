@@ -1,0 +1,548 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  background: none;
+  min-height: 100vh;
+}
+.ocean-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("/src/assets/images/background-comment.webp") center/cover
+    no-repeat;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+.comments-main {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem 1rem;
+}
+.comments-hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.comments-hero h1 {
+  font-size: 2.2rem;
+  color: #229954;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px #fff8;
+}
+.comments-hero .subtitle {
+  color: #229954;
+  font-size: 1.1rem;
+  text-shadow: 0 2px 8px #fff8;
+}
+.comment-form-section,
+.comments-list-section,
+.faq-section {
+  background: rgba(255, 255, 255, 0.484) !important;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #fff6;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  margin-bottom: 2rem;
+  border: 1.5px solid #27ae60;
+}
+.comment-form h2,
+.comments-list-header h2,
+.faq-section h2 {
+  color: #229954;
+  text-shadow: 0 2px 8px #fff8;
+}
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.form-group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  color: #229954;
+  text-shadow: 0 2px 8px #fff8;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border: 1.5px solid #27ae60;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  background: none;
+  color: #229954;
+  box-shadow: 0 2px 8px #fff6;
+  transition: border 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #229954;
+  background: none;
+}
+.btn-submit {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px #fff6;
+}
+.btn-submit:hover {
+  background: #229954;
+  transform: translateY(-2px) scale(1.03);
+}
+.comments-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.order-select {
+  border-radius: 0.5rem;
+  border: 1.5px solid #27ae60;
+  padding: 0.4rem 1rem;
+  font-size: 1rem;
+  background: none;
+  color: #229954;
+  box-shadow: 0 2px 8px #fff6;
+}
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.comment-card {
+  background: none !important;
+  border-radius: 0.7rem;
+  box-shadow: 0 2px 8px #fff6;
+  padding: 1rem 1.2rem 0.7rem 1.2rem;
+  position: relative;
+  animation: fadeIn 0.5s;
+  transition: box-shadow 0.2s, border 0.2s;
+  border: 1.5px solid #27ae60;
+}
+.comment-card.most-supported {
+  border: 2px solid #229954;
+  box-shadow: 0 2px 12px #22995422;
+}
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+.comment-name {
+  font-weight: 600;
+  color: #229954;
+  text-shadow: 0 2px 8px #fff8;
+}
+.comment-category {
+  background: none;
+  color: #229954;
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.7rem;
+  font-size: 0.95em;
+  margin-left: 0.5rem;
+  border: 1.5px solid #27ae60;
+  text-shadow: 0 2px 8px #fff8;
+}
+.comment-content {
+  margin-bottom: 0.7rem;
+  color: #229954;
+  font-size: 1.08rem;
+  text-shadow: 0 2px 8px #fff8;
+}
+.comment-support {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+.support-btn,
+.reply-btn,
+.edit-btn,
+.delete-btn,
+.delete-reply-btn {
+  background: none;
+  color: #229954;
+  border: 1.5px solid #27ae60;
+  border-radius: 0.4rem;
+  padding: 0.3rem 0.9rem;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  margin-right: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  box-shadow: 0 2px 8px #fff6;
+}
+.support-btn[disabled] {
+  background: #b7e1cd;
+  color: #fff;
+  cursor: not-allowed;
+}
+.support-btn:hover:not([disabled]),
+.reply-btn:hover,
+.edit-btn:hover,
+.delete-btn:hover,
+.delete-reply-btn:hover {
+  background: #27ae60;
+  color: #fff;
+  transform: scale(1.07);
+}
+.reply-btn {
+  background: none;
+  color: #229954;
+}
+.edit-btn {
+  background: none;
+  color: #229954;
+}
+.delete-btn,
+.delete-reply-btn {
+  background: none;
+  color: #c0392b;
+  border: 1.5px solid #c0392b;
+}
+.delete-btn:hover,
+.delete-reply-btn:hover {
+  background: #c0392b;
+  color: #fff;
+}
+.replies {
+  margin-top: 0.7rem;
+  margin-left: 1.5rem;
+  border-left: 2px solid #27ae60;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.reply-card {
+  background: none !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.98em;
+  color: #229954;
+  box-shadow: 0 2px 8px #fff6;
+  animation: fadeIn 0.4s;
+  border: 1.5px solid #27ae60;
+  position: relative;
+}
+.reply-author {
+  font-weight: 500;
+  color: #229954;
+  margin-right: 0.5em;
+  text-shadow: 0 2px 8px #fff8;
+}
+.reply-form,
+.edit-form {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  animation: fadeIn 0.3s;
+}
+.reply-form input,
+.reply-form textarea,
+.edit-form textarea {
+  border: 1.5px solid #27ae60;
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  font-size: 1em;
+  background: none;
+  color: #229954;
+  box-shadow: 0 2px 8px #fff6;
+}
+.reply-form button,
+.edit-form button {
+  background: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem 1.1rem;
+  font-size: 1em;
+  cursor: pointer;
+  margin-right: 0.3rem;
+  transition: background 0.2s, transform 0.1s;
+}
+.reply-form button:hover,
+.edit-form button:hover {
+  background: #229954;
+  transform: scale(1.05);
+}
+.reply-form .cancel-reply,
+.edit-form .cancel-edit {
+  background: #b7e1cd;
+  color: #229954;
+}
+.no-comments {
+  color: #229954;
+  text-align: center;
+  font-size: 1.1em;
+  margin: 2rem 0;
+  text-shadow: 0 2px 8px #fff8;
+}
+.faq-section h2 {
+  color: #229954;
+  margin-top: 0;
+  text-shadow: 0 2px 8px #fff8;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.faq-item {
+  background: none !important;
+  border-radius: 0.7rem;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1.5px solid #27ae60;
+}
+.faq-item.active,
+.faq-item:hover {
+  background: rgba(39, 174, 96, 0.08);
+}
+.faq-question {
+  font-weight: 500;
+  color: #229954;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-shadow: 0 2px 8px #fff8;
+}
+.faq-answer {
+  display: none;
+  color: #229954;
+  margin-top: 0.5rem;
+  font-size: 0.98em;
+  text-shadow: 0 2px 8px #fff8;
+}
+.faq-item.active .faq-answer {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+.main-footer {
+  background: #229954;
+  color: #fff;
+  text-align: center;
+  padding: 1.2rem 0 0.7rem 0;
+  border-radius: 1.2rem 1.2rem 0 0;
+  margin-top: 2rem;
+}
+.social-links {
+  margin-bottom: 0.5rem;
+}
+.social-links a {
+  color: #fff;
+  margin: 0 0.5rem;
+  font-size: 1.3em;
+  transition: color 0.2s;
+}
+.social-links a:hover {
+  color: #27ae60;
+}
+@media (max-width: 700px) {
+  .comments-main {
+    padding: 1rem 0.2rem 3rem 0.2rem;
+  }
+  .comment-form-section,
+  .comments-list-section,
+  .faq-section {
+    padding: 1rem 0.5rem;
+  }
+  .comment-card {
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Kebab menu y modales --- */
+.comment-menu,
+.reply-menu {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+.kebab-btn {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.kebab-btn:hover,
+.kebab-btn:focus {
+  background: #e0e0e0;
+  color: #229954;
+}
+.kebab-menu {
+  position: absolute;
+  top: 2rem;
+  right: 0;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(34, 153, 84, 0.13);
+  min-width: 140px;
+  z-index: 10;
+  display: none;
+  flex-direction: column;
+  padding: 0.3rem 0;
+}
+.kebab-menu button {
+  background: none;
+  border: none;
+  color: #222;
+  text-align: left;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+.kebab-menu button:hover,
+.kebab-menu button:focus {
+  background: #f4f8fb;
+  color: #229954;
+}
+
+/* Modal styles */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s;
+}
+.modal-content {
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(34, 153, 84, 0.18);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  min-width: 280px;
+  max-width: 95vw;
+  text-align: center;
+  position: relative;
+  animation: popIn 0.2s;
+}
+.modal-content h3 {
+  margin-top: 0;
+  color: #229954;
+}
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+.btn-cancel,
+.btn-confirm {
+  padding: 0.6rem 1.3rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-cancel {
+  background: #e0e0e0;
+  color: #222;
+}
+.btn-cancel:hover,
+.btn-cancel:focus {
+  background: #bbb;
+}
+.btn-confirm {
+  background: #229954;
+  color: #fff;
+}
+.btn-confirm:hover,
+.btn-confirm:focus {
+  background: #176d3b;
+}
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  border: 1.5px solid #27ae60;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  background: none;
+  color: #229954;
+  box-shadow: 0 2px 8px #fff6;
+  width: 100%;
+  transition: border 0.2s;
+}
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #229954;
+  background: none;
+}
+.modal-content label {
+  font-weight: 500;
+  color: #229954;
+  margin-bottom: 0.2rem;
+  display: block;
+  text-align: left;
+}
+.modal-content .btn-cancel,
+.modal-content .btn-confirm {
+  margin-top: 0.5rem;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

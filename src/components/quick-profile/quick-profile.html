@@ -1,0 +1,66 @@
+<!-- Perfil rápido flotante (oculto por defecto) -->
+<div id="quick-profile-modal" class="fixed inset-0 z-50 hidden">
+  <div id="quick-profile-container" class="absolute bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl w-80 overflow-hidden border border-primary/20 top-20 right-5">
+    <!-- Barra de título con mango para arrastrar -->
+    <div id="quick-profile-handle" class="bg-gradient-to-r from-primary to-accent px-4 py-3 text-white flex items-center justify-between cursor-move">
+      <div class="flex items-center">
+        <i class="fas fa-user-circle mr-2"></i>
+        <h3 class="font-medium">Mi Perfil</h3>
+      </div>
+      <button id="quick-profile-close" class="text-white hover:text-white/80 transition-colors" aria-label="Cerrar perfil rápido" title="Cerrar">
+        <i class="fas fa-times" aria-hidden="true"></i>
+        <span class="sr-only">Cerrar</span>
+      </button>
+    </div>
+    
+    <!-- Contenido del perfil rápido -->
+    <div class="p-5">
+      <!-- Avatar y nombre -->
+      <div class="flex items-center mb-5">
+        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/30 mr-3">
+          <img id="quick-profile-avatar" src="/src/assets/images/missa.webp" alt="Avatar de usuario" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h4 id="quick-profile-name" class="font-bold text-lg text-neutral-dark">María Martínez</h4>
+          <p class="text-sm text-neutral-light">Nivel: <span id="quick-profile-level" class="text-primary font-medium">Ecologista</span></p>
+        </div>
+      </div>
+      
+      <!-- Estadísticas rápidas -->
+      <div class="grid grid-cols-2 gap-3 mb-5">
+        <div class="bg-primary/10 rounded-xl p-3 text-center">
+          <p class="text-sm text-neutral-light">Comentarios</p>
+          <p id="quick-profile-comments" class="text-xl font-bold text-primary">14</p>
+        </div>
+        <div class="bg-accent/10 rounded-xl p-3 text-center">
+          <p class="text-sm text-neutral-light">Apoyos</p>
+          <p id="quick-profile-likes" class="text-xl font-bold text-accent">82</p>
+        </div>
+      </div>
+      
+      <!-- Logros destacados -->
+      <div class="mb-5">
+        <h5 class="text-sm font-medium text-neutral-dark mb-2">Logros destacados</h5>
+        <div class="flex space-x-2">
+          <div class="bg-gradient-to-br from-primary/20 to-accent/20 border-primary/50 border rounded-full w-10 h-10 flex items-center justify-center" title="Ecologista">
+            <i class="fas fa-leaf text-primary"></i>
+          </div>
+          <div class="bg-gradient-to-br from-primary/20 to-accent/20 border-primary/50 border rounded-full w-10 h-10 flex items-center justify-center" title="Influencer">
+            <i class="fas fa-star text-primary"></i>
+          </div>
+          <div class="bg-gradient-to-br from-primary/20 to-accent/20 border-primary/50 border rounded-full w-10 h-10 flex items-center justify-center" title="Promotor">
+            <i class="fas fa-share-alt text-primary"></i>
+          </div>
+          <div class="bg-neutral-light/30 border-neutral-light/50 border rounded-full w-10 h-10 flex items-center justify-center" title="Experto (bloqueado)">
+            <i class="fas fa-crown text-neutral-light"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Botón para ir al perfil completo -->
+      <a href="/src/pages/perfil.html" class="block w-full py-2 px-4 bg-gradient-to-r from-primary to-accent text-white text-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:translate-y-px">
+        <i class="fas fa-external-link-alt mr-2"></i> Ver perfil completo
+      </a>
+    </div>
+  </div>
+</div>

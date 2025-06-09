@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comentarios - TSAEC</title>
+    <meta
+      name="description"
+      content="Participa dejando tus ideas, problemas o sugerencias sobre movilidad sustentable en Calama."
+    />
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/dist/output.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/src/styles/comentarios-custom.css" />
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <!-- Script de perfil rápido -->
+    <script src="/src/js/perfil.js"></script>
+  </head>
+
+  <body
+    class="min-h-screen font-sans text-gray-800 bg-gradient-to-br from-cyan-50 via-sky-100 to-green-50"
+  >
+    <!-- Header dinámico -->
+    <header
+      id="header-container"
+      class="fixed top-0 w-full z-50 transition-all duration-300"
+    ></header>
+
+    <main class="container mx-auto px-4 md:px-6 lg:px-8 pt-28 sm:pt-32 pb-16">
+      <div class="max-w-4xl mx-auto">
+        <!-- Título y Estadísticas -->
+        <section
+          class="mb-10 text-center animate__animated animate__fadeInDown"
+        >
+          <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+            <i class="fas fa-comments text-cyan-500"></i> Comunidad TSAEC
+          </h1>
+          <p class="text-gray-600 text-lg mb-6">
+            Tu voz es importante para mejorar la movilidad en Calama
+          </p>
+
+          <!-- Gráfico de Participación -->
+          <div class="glass p-6 rounded-xl mb-6">
+            <h3 class="text-lg font-semibold text-gray-700 mb-4">
+              Participación por Categoría
+            </h3>
+            <canvas id="participacionChart" class="w-full max-h-64"></canvas>
+          </div>
+
+          <!-- Contador de Comentarios -->
+          <div class="flex justify-center gap-6 text-sm text-gray-600">
+            <div>
+              <i class="fas fa-comments text-cyan-500"></i>
+              <span id="totalComentarios">0</span> comentarios
+            </div>
+            <div>
+              <i class="fas fa-lightbulb text-yellow-500"></i>
+              <span id="totalIdeas">0</span> ideas
+            </div>
+            <div>
+              <i class="fas fa-exclamation-circle text-red-500"></i>
+              <span id="totalProblemas">0</span> problemas
+            </div>
+            <div>
+              <i class="fas fa-star text-green-500"></i>
+              <span id="totalSugerencias">0</span> sugerencias
+            </div>
+          </div>
+        </section>
+
+        <!-- Formulario de Nuevo Comentario -->
+        <section id="comment-form-section" class="mb-12">
+          <div class="glass p-6 sm:p-8 rounded-xl shadow-lg">
+            <h2
+              class="text-xl sm:text-2xl font-semibold text-cyan-700 mb-6 flex items-center"
+            >
+              <i class="fas fa-pencil-alt mr-2"></i>
+              <span>Comparte tu opinión</span>
+            </h2>
+
+            <form id="commentForm" class="space-y-6">
+              <!-- Categorías -->
+              <div class="space-y-2">
+                <label class="block text-sm font-medium text-gray-700"
+                  >Selecciona una categoría:</label
+                >
+                <div class="flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    class="categoria-btn categoria-idea press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
+                    data-categoria="idea"
+                  >
+                    <i class="fas fa-lightbulb mr-2"></i>Idea
+                  </button>
+                  <button
+                    type="button"
+                    class="categoria-btn categoria-problema press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
+                    data-categoria="problema"
+                  >
+                    <i class="fas fa-exclamation-circle mr-2"></i>Problema
+                  </button>
+                  <button
+                    type="button"
+                    class="categoria-btn categoria-sugerencia press-effect flex items-center px-4 py-2 rounded-lg text-sm font-medium"
+                    data-categoria="sugerencia"
+                  >
+                    <i class="fas fa-star mr-2"></i>Sugerencia
+                  </button>
+                </div>
+              </div>
+
+              <!-- Área de texto -->
+              <div class="space-y-2">
+                <label
+                  for="comentarioTexto"
+                  class="block text-sm font-medium text-gray-700"
+                >
+                  Tu mensaje:
+                </label>
+                <div class="relative">
+                  <textarea
+                    id="comentarioTexto"
+                    name="comentarioTexto"
+                    rows="4"
+                    class="w-full p-4 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-white/80 backdrop-blur-sm resize-none transition-all text-gray-700"
+                    placeholder="Escribe aquí tu idea, problema o sugerencia..."
+                    maxlength="280"
+                  ></textarea>
+                  <div
+                    class="absolute bottom-3 right-3 text-sm text-gray-500"
+                    id="contadorCaracteres"
+                  >
+                    <span id="caracteresActuales">0</span>/280
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botones de acción -->
+              <div class="flex flex-wrap gap-4 justify-end">
+                <button
+                  type="button"
+                  id="limpiarBtn"
+                  class="px-4 py-2 rounded-lg text-gray-600 hover:text-gray-800 hover:bg-gray-100 transition-colors duration-200"
+                >
+                  <i class="fas fa-redo-alt mr-2"></i>Limpiar
+                </button>
+                <button
+                  type="submit"
+                  class="px-6 py-2 bg-cyan-500 text-white rounded-lg shadow-md hover:bg-cyan-600 transform transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <i class="fas fa-paper-plane mr-2"></i>Enviar
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- Lista de Comentarios -->
+        <section id="comments-list-section">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-semibold text-gray-800">
+              <i class="fas fa-list-ul text-cyan-500 mr-2"></i>Comentarios
+            </h2>
+            <div class="flex items-center gap-4">
+              <select
+                id="ordenarPor"
+                class="bg-white/80 border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-700 focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              >
+                <option value="recientes">Más recientes</option>
+                <option value="apoyos">Más apoyados</option>
+                <option value="antiguos">Más antiguos</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Contenedor de comentarios -->
+          <div id="comentariosList" class="space-y-6">
+            <!-- Los comentarios se insertarán aquí dinámicamente -->
+          </div>
+
+          <!-- Mensaje cuando no hay comentarios -->
+          <div id="noComments" class="glass p-8 text-center rounded-xl hidden">
+            <i class="fas fa-comments text-cyan-500 text-4xl mb-4"></i>
+            <p class="text-gray-600 text-lg">
+              ¡Sé el primero en compartir tu opinión!
+            </p>
+          </div>
+
+          <!-- Paginación -->
+          <div class="flex justify-center mt-8">
+            <div class="flex gap-2" id="paginacion">
+              <!-- La paginación se insertará aquí dinámicamente -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Modales -->
+    <!-- Modal de Confirmación de Eliminación -->
+    <div
+      id="deleteModal"
+      class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center"
+    >
+      <div class="glass p-6 rounded-xl max-w-md mx-4 animate-scale">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">
+          <i class="fas fa-exclamation-triangle text-yellow-500 mr-2"></i>
+          Confirmar eliminación
+        </h3>
+        <p class="text-gray-600 mb-6">
+          ¿Estás seguro de que quieres eliminar este comentario? Esta acción no
+          se puede deshacer.
+        </p>
+        <div class="flex justify-end gap-4">
+          <button
+            id="cancelDelete"
+            class="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            Cancelar
+          </button>
+          <button
+            id="confirmDelete"
+            class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer dinámico -->
+    <footer id="footer-container"></footer>
+
+    <!-- Scripts -->
+    <script src="/src/js/comentarios.js" type="module"></script>
+    <script>
+      // Cargar componentes dinámicos
+      document.addEventListener("DOMContentLoaded", () => {
+        fetch("/src/components/header/header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("header-container").innerHTML = data;
+            if (window.initHeaderMenu) window.initHeaderMenu();
+          });
+
+        fetch("/src/components/footer/footer.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>

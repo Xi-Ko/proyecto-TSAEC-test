@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="TSAEC - Transportes Sustentables y Alternativas Ecológicas para Calama, promoviendo movilidad sustentable y conciencia ambiental." />
+    <title>
+      TSAEC - Transportes Sustentables Alternativas Ecológicas para Calama
+    </title>
+    <!-- Estilos y Fuentes -->
+    <link rel="stylesheet" href="/dist/output.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-main-bg bg-fixed bg-cover bg-center text-neutral-dark antialiased overflow-x-hidden">
+    <!-- Header container que se llenará con JavaScript -->
+    <header
+      id="header-container"
+      class="w-full fixed top-0 left-0 z-50 transition-all duration-300 ease-in-out"
+      role="banner"
+      aria-label="Barra de navegación principal"
+    ></header>
+    
+    <!-- Hero Section con fondo de imagen y superposición de gradiente -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-hero-pattern" aria-label="Sección principal de bienvenida">
+      <!-- Capa de superposición con gradiente mejorado -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/80 via-secondary-dark/70 to-primary-dark/60 backdrop-blur-[2px]"></div>
+      
+      <div class="relative container mx-auto px-6 py-28 md:py-32 text-center z-10">
+        <div data-aos="fade-up" data-aos-duration="1000" class="max-w-4xl mx-auto">
+          <!-- Pequeño elemento gráfico decorativo -->
+          <div class="flex justify-center mb-6">
+            <div class="w-24 h-1 bg-accent rounded-full"></div>
+          </div>
+          
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl tracking-tight">
+            Bienvenido a <span class="text-accent bg-gradient-to-r from-accent to-amber-500 bg-clip-text text-transparent">TSAEC</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white mb-4 max-w-3xl mx-auto font-light">
+            Transportes Sustentables Alternativas Ecológicas para Calama
+          </p>
+          <p class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Transformando la movilidad de nuestra ciudad hacia un futuro más verde y sustentable
+          </p>
+          
+          <div class="flex flex-wrap justify-center gap-6 mt-8">
+            <a href="/src/pages/explorar.html" class="btn btn-accent px-8 py-4 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-xl" aria-label="Explorar soluciones de movilidad sustentable">
+              Explorar Soluciones <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="/src/pages/acerca.html" class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-md px-8 py-4 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-xl" aria-label="Conocer más sobre nuestro proyecto">
+              Conocer Más <i class="fas fa-info-circle ml-2"></i>
+            </a>
+          </div>
+          
+          <!-- Indicador de scroll -->
+          <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow hidden md:block">
+            <a href="#features" class="text-white/80 hover:text-white transition-colors" aria-label="Desplázate hacia abajo">
+              <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decoración de ondas en la parte inferior con efecto mejorado -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full h-auto" preserveAspectRatio="none">
+          <path fill="#f5f5f5" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-12">
+      <!-- Sección de Iniciativas y Características -->
+      <section id="features" class="py-20 scroll-mt-16" aria-label="Nuestras iniciativas para la movilidad sustentable">
+        <div class="text-center mb-16 bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-md" data-aos="fade-up">
+          <span class="text-sm text-accent font-semibold uppercase tracking-wider" data-aos="fade-up">Lo que hacemos</span>
+          <h2 class="section-title mt-2" data-aos="fade-up" data-aos-delay="50">Nuestras Iniciativas</h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Promovemos soluciones sustentables de movilidad urbana para mejorar 
+            la calidad del aire en Calama y fomentar un estilo de vida más saludable
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <!-- Tarjeta 1: Movilidad Sustentable -->
+          <div class="eco-card group hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="150">
+            <div class="bg-primary/10 p-8 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <i class="fas fa-leaf text-6xl text-primary transition-all duration-300 group-hover:scale-110 relative z-10"></i>
+            </div>
+            <div class="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary-light/20 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <h3 class="text-2xl font-bold mb-3 text-primary-dark group-hover:text-primary transition-colors">
+                Movilidad Sustentable
+              </h3>
+              <p class="text-gray-600 mb-6 h-20">
+                Descubre alternativas ecológicas para moverte por Calama y reduce tu huella de carbono
+              </p>
+              <a href="/src/pages/explorar.html" class="btn btn-primary w-full rounded-xl" aria-label="Explorar opciones de movilidad sustentable">
+                Explorar Opciones <i class="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 2: Únete al Cambio -->
+          <div class="eco-card group hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-secondary/10 p-8 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <i class="fas fa-users text-6xl text-secondary transition-all duration-300 group-hover:scale-110 relative z-10"></i>
+            </div>
+            <div class="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary-light/20 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <h3 class="text-2xl font-bold mb-3 text-secondary-dark group-hover:text-secondary transition-colors">
+                Únete al Cambio
+              </h3>
+              <p class="text-gray-600 mb-6 h-20">
+                Sé parte de la transformación hacia una ciudad más limpia y sostenible para todos
+              </p>
+              <a href="/src/pages/documento.html" class="btn btn-secondary w-full rounded-xl" aria-label="Unirse a la iniciativa de movilidad sustentable">
+                Unirse Ahora <i class="fas fa-handshake ml-2 group-hover:ml-3 transition-all"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 3: Nuestro Proyecto -->
+          <div class="eco-card group hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="250">
+            <div class="bg-primary/10 p-8 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <i class="fas fa-seedling text-6xl text-primary transition-all duration-300 group-hover:scale-110 relative z-10"></i>
+            </div>
+            <div class="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary-light/20 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <h3 class="text-2xl font-bold mb-3 text-primary-dark group-hover:text-primary transition-colors">
+                Nuestro Proyecto
+              </h3>
+              <p class="text-gray-600 mb-6 h-20">
+                Conoce más sobre nuestra misión, visión y los objetivos que perseguimos
+              </p>
+              <a href="/src/pages/acerca.html" class="btn btn-primary w-full rounded-xl" aria-label="Conocer más sobre el proyecto TSAEC">
+                Saber Más <i class="fas fa-info-circle ml-2 group-hover:ml-3 transition-all"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 4: Equipo -->
+          <div class="eco-card group hover:shadow-xl hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-secondary/10 p-8 flex items-center justify-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <i class="fas fa-people-group text-6xl text-secondary transition-all duration-300 group-hover:scale-110 relative z-10"></i>
+            </div>
+            <div class="p-6 bg-white/70 backdrop-blur-sm rounded-xl border border-primary-light/20 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <h3 class="text-2xl font-bold mb-3 text-secondary-dark group-hover:text-secondary transition-colors">
+                Nuestro Equipo
+              </h3>
+              <p class="text-gray-600 mb-6 h-20">
+                Conoce a las personas comprometidas que trabajan detrás de TSAEC
+              </p>
+              <a href="/src/pages/equipo.html" class="btn btn-secondary w-full rounded-xl" aria-label="Ver el equipo de TSAEC">
+                Ver Equipo <i class="fas fa-user-group ml-2 group-hover:ml-3 transition-all"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Impacto con estadísticas -->
+      <section id="impact" class="py-24 my-20 relative overflow-hidden rounded-3xl" aria-label="Nuestro impacto en movilidad sustentable">
+        <!-- Fondo con gradiente mejorado -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/5"></div>
+        
+        <!-- Elementos decorativos del fondo -->
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute top-0 left-0 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl"></div>
+          <div class="absolute bottom-0 right-0 w-80 h-80 bg-secondary/10 rounded-full filter blur-3xl"></div>
+        </div>
+        
+        <div class="relative z-10">
+          <div class="text-center mb-16 bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-md">
+            <span class="text-sm text-accent font-semibold uppercase tracking-wider" data-aos="fade-up">Resultados</span>
+            <h2 class="section-title mt-2" data-aos="fade-up" data-aos-delay="50">Nuestro Impacto</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              Desde que iniciamos TSAEC, estamos contribuyendo a hacer de Calama una ciudad más verde y saludable
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-6">
+            <!-- Estadística 1: Reducción de emisiones -->
+            <div class="text-center p-10 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-primary/10" data-aos="fade-up" data-aos-delay="150">
+              <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 text-primary mb-6 group-hover:scale-105 transition-transform">
+                <i class="fas fa-bicycle text-5xl"></i>
+              </div>
+              <div class="relative overflow-hidden h-16 mb-2">
+                <h3 class="text-5xl font-bold text-primary inline-flex items-baseline">
+                  <span class="counter" data-count="30">0</span><span>%</span>
+                </h3>
+              </div>
+              <p class="text-gray-700 text-xl font-medium">Reducción de emisiones</p>
+              <p class="text-gray-500 text-sm mt-2">En comparación con medios tradicionales</p>
+            </div>
+            
+            <!-- Estadística 2: Usuarios activos -->
+            <div class="text-center p-10 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-secondary/10" data-aos="fade-up" data-aos-delay="200">
+              <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/40 text-secondary mb-6 group-hover:scale-105 transition-transform">
+                <i class="fas fa-users text-5xl"></i>
+              </div>
+              <div class="relative overflow-hidden h-16 mb-2">
+                <h3 class="text-5xl font-bold text-secondary inline-flex items-baseline">
+                  <span class="counter" data-count="1000">0</span><span>+</span>
+                </h3>
+              </div>
+              <p class="text-gray-700 text-xl font-medium">Usuarios activos</p>
+              <p class="text-gray-500 text-sm mt-2">Comprometidos con la movilidad sustentable</p>
+            </div>
+            
+            <!-- Estadística 3: Reducción de contaminación -->
+            <div class="text-center p-10 bg-white/60 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-accent/10" data-aos="fade-up" data-aos-delay="250">
+              <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-accent/20 to-accent/40 text-accent mb-6 group-hover:scale-105 transition-transform">
+                <i class="fas fa-leaf text-5xl"></i>
+              </div>
+              <div class="relative overflow-hidden h-16 mb-2">
+                <h3 class="text-5xl font-bold text-accent inline-flex items-baseline">
+                  <span class="counter" data-count="50">0</span><span>%</span>
+                </h3>
+              </div>
+              <p class="text-gray-700 text-xl font-medium">Menos contaminación</p>
+              <p class="text-gray-500 text-sm mt-2">En las zonas donde operamos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Sección de Registros con diseño mejorado -->
+      <section id="registros" class="relative my-16 overflow-hidden rounded-3xl shadow-xl" data-aos="fade-up" aria-label="Registro para unirse al movimiento">
+        <!-- Fondo con degradado diagonal -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary-dark via-primary to-secondary opacity-90"></div>
+        
+        <!-- Elementos decorativos flotantes -->
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute top-10 left-10 w-24 h-24 bg-white/10 rounded-full animate-pulse-slow"></div>
+          <div class="absolute bottom-10 right-10 w-32 h-32 bg-white/10 rounded-full animate-bounce-slow"></div>
+          <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-pulse-slow delay-1000"></div>
+        </div>
+        
+        <div class="relative z-10 p-10 md:p-16 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-md">
+            <i class="fas fa-user-plus mr-3"></i> Únete a Nuestro Movimiento
+          </h2>
+          
+          <p id="register-counter" class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Ya somos <span class="font-bold text-white text-2xl md:text-3xl px-2 py-1 bg-accent/20 backdrop-blur-sm rounded-lg inline-flex items-center"><span class="mx-1">523</span></span> miembros activos en nuestra comunidad
+          </p>
+          
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="/src/pages/cuenta.html" class="btn bg-white text-primary-dark hover:bg-white/90 px-8 py-4 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-xl" aria-label="Registrarse como miembro">
+              Registrarme Ahora <i class="fas fa-arrow-right ml-2 group-hover:ml-3 transition-all"></i>
+            </a>
+            
+            <a href="/src/pages/explorar.html" class="btn bg-white/20 text-white hover:bg-white/30 backdrop-blur-sm px-8 py-4 text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-xl" aria-label="Explorar antes de registrarse">
+              Conocer Más <i class="fas fa-info-circle ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer con diseño moderno mejorado -->
+    <footer class="bg-gradient-to-br from-neutral-dark to-neutral-dark/95 text-white pt-20 pb-8" role="contentinfo" aria-label="Pie de página con información de contacto y enlaces">
+      <!-- Onda decorativa superior -->
+      <div class="absolute -top-1 left-0 right-0 w-full overflow-hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="relative block w-full h-auto rotate-180" preserveAspectRatio="none">
+          <path fill="#f5f5f5" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+        </svg>
+      </div>
+      
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <!-- Columna 1: Logo y Acerca de TSAEC -->
+          <div class="lg:col-span-2">
+            <div class="flex items-center mb-4">
+              <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center mr-3">
+                <i class="fas fa-leaf text-accent text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">TSAEC</h3>
+            </div>
+            <p class="mb-6 text-gray-300 text-lg leading-relaxed">
+              Transportes Sustentables Alternativas Ecológicas para Calama. Promoviendo la movilidad sustentable y 
+              el cuidado del medio ambiente en nuestra ciudad para un futuro más limpio y saludable.
+            </p>
+            <!-- Redes Sociales con animación mejorada -->
+            <div class="flex space-x-4 mt-6">
+              <a href="https://www.instagram.com/tsaec_calama?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                 class="bg-white/10 hover:bg-accent hover:scale-110 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+                 aria-label="Visita nuestra página de Instagram" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+              <a href="#" 
+                 class="bg-white/10 hover:bg-accent hover:scale-110 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+                 aria-label="Visita nuestra página de Facebook">
+                <i class="fab fa-facebook-f text-xl"></i>
+              </a>
+              <a href="#" 
+                 class="bg-white/10 hover:bg-accent hover:scale-110 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300"
+                 aria-label="Visita nuestra página de Twitter">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Columna 2: Enlaces Rápidos -->
+          <div class="md:ml-auto">
+            <h3 class="text-xl font-bold mb-6 relative inline-block">
+              Enlaces Rápidos
+              <div class="absolute -bottom-2 left-0 w-1/2 h-1 bg-accent rounded-full"></div>
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a href="/src/pages/explorar.html" class="text-gray-300 hover:text-accent transition-colors flex items-center">
+                  <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Movilidad Sustentable
+                </a>
+              </li>
+              <li>
+                <a href="/src/pages/documento.html" class="text-gray-300 hover:text-accent transition-colors flex items-center">
+                  <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Folleto Digital
+                </a>
+              </li>
+              <li>
+                <a href="/src/pages/acerca.html" class="text-gray-300 hover:text-accent transition-colors flex items-center">
+                  <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Sobre Nosotros
+                </a>
+              </li>
+              <li>
+                <a href="/src/pages/equipo.html" class="text-gray-300 hover:text-accent transition-colors flex items-center">
+                  <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Nuestro Equipo
+                </a>
+              </li>
+              <li>
+                <a href="/src/pages/comentarios.html" class="text-gray-300 hover:text-accent transition-colors flex items-center">
+                  <i class="fas fa-chevron-right text-xs mr-2 text-accent"></i> Comentarios
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Columna 3: Contador de Visitas -->
+          <div>
+            <h3 class="text-xl font-bold mb-6 relative inline-block">
+              Estadísticas del Sitio
+              <div class="absolute -bottom-2 left-0 w-1/2 h-1 bg-accent rounded-full"></div>
+            </h3>
+            <div class="bg-white/10 hover:bg-white/15 transition-colors rounded-xl p-5 flex items-center space-x-4 shadow-lg">
+              <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+                <i class="fas fa-eye text-accent text-2xl"></i>
+              </div>
+              <div>
+                <span class="block text-sm text-gray-300 mb-1">Total de visitas</span>
+                <span class="block text-2xl font-bold text-white" id="visitCount">0</span>
+              </div>
+            </div>
+            <p class="mt-5 text-gray-300 text-sm leading-relaxed">
+              Ayudanos a difundir nuestro mensaje compartiendo esta iniciativa con tus amigos y familiares.
+              Juntos podemos hacer de Calama una ciudad más sustentable. 
+            </p>
+          </div>
+        </div>
+        
+        <!-- Línea divisoria con degradado -->
+        <div class="border-t border-gray-700/50 pt-8 mt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">&copy; 2025 TSAEC. Todos los derechos reservados.</p>
+            <p class="text-gray-400 text-sm mt-4 md:mt-0 flex items-center">
+              Diseñado con <i class="fas fa-heart text-accent mx-2 animate-pulse"></i> por el equipo TSAEC para Calama
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/src/components/header/header.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // Inicializar la biblioteca AOS para animaciones al hacer scroll
+      document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar AOS
+        AOS.init({
+          duration: 800,
+          easing: 'ease-in-out',
+          once: true
+        });
+        
+        // Animación de contadores numéricos
+        function animateCounters() {
+          const counters = document.querySelectorAll('.counter');
+          const animationDuration = 2000; // duración en milisegundos
+          
+          counters.forEach(counter => {
+            const targetValue = parseInt(counter.getAttribute('data-count'), 10);
+            const startValue = 0;
+            const increment = targetValue / (animationDuration / 16); // 60fps
+            let currentValue = startValue;
+            
+            const updateCounter = () => {
+              currentValue += increment;
+              if (currentValue < targetValue) {
+                counter.textContent = Math.ceil(currentValue);
+                requestAnimationFrame(updateCounter);
+              } else {
+                counter.textContent = targetValue;
+              }
+            };
+            
+            // Iniciar la animación
+            updateCounter();
+          });
+        }
+        
+        // Usar Intersection Observer para detectar cuando los contadores son visibles
+        const impactSection = document.querySelector('#impact');
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              animateCounters();
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 }); // Activar cuando al menos el 20% de la sección sea visible
+        
+        if (impactSection) {
+          observer.observe(impactSection);
+        }
+        
+        // Definir initQuickProfile en el scope global
+        window.initQuickProfile = function () {
+          const userStats = JSON.parse(
+            localStorage.getItem("tsaec_userstats") || "{}"
+          );
+          const userId = localStorage.getItem("tsaec_userid");
+          const profileButton = document.querySelector(".quick-profile");
+
+          if (profileButton && userId && userStats[userId]) {
+            const stats = userStats[userId];
+            const commentCount = profileButton.querySelector(".comment-count");
+            const supportCount = profileButton.querySelector(".support-count");
+            if (commentCount) commentCount.textContent = stats.comments || 0;
+            if (supportCount) supportCount.textContent = stats.supports || 0;
+          }
+        };
+
+        // Cargar header y configurar menú
+        fetch("/src/components/header/header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("header-container").innerHTML = data;
+
+            // Esperar a que los elementos del header estén en el DOM
+            requestAnimationFrame(() => {
+              // Inicializar el menú y el perfil rápido
+              if (typeof window.initHeaderMenu === "function") {
+                window.initHeaderMenu();
+              }
+              if (typeof window.initQuickProfile === "function") {
+                window.initQuickProfile();
+              }
+
+              // Efecto de header transparente que cambia al hacer scroll
+              const header = document.getElementById('header-container');
+              const headerWave = document.querySelector(".header-wave");
+              
+              function updateHeaderOnScroll() {
+                // Siempre mantener el fondo blanco con transparencia
+                header.classList.add('bg-white/90', 'backdrop-blur-sm');
+                
+                // Añadir sombra solo al hacer scroll
+                if (window.scrollY > 100) {
+                  header.classList.add('shadow-md');
+                } else {
+                  header.classList.remove('shadow-md');
+                }
+                
+                // Animación del header wave si existe
+                if (headerWave) {
+                  let lastScrollTop = 0;
+                  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                  if (scrollTop > lastScrollTop && scrollTop > 80) {
+                    // Scroll hacia abajo
+                    headerWave.style.transform = "translateY(-100%)";
+                  } else {
+                    // Scroll hacia arriba o en la parte superior
+                    headerWave.style.transform = "translateY(0)";
+                  }
+                  lastScrollTop = scrollTop;
+                }
+              }
+              
+              // Aplicar inicialmente y al hacer scroll
+              updateHeaderOnScroll();
+              window.addEventListener('scroll', updateHeaderOnScroll);
+            });
+          })
+          .catch((error) => console.error("Error loading header:", error));
+          
+        // Contador de visitas
+        const counterContainer = document.querySelector("#visitCount");
+        let visitCount = localStorage.getItem("page_view");
+
+        if (visitCount) {
+          visitCount = Number(visitCount) + 1;
+          localStorage.setItem("page_view", visitCount);
+        } else {
+          visitCount = 1;
+          localStorage.setItem("page_view", 1);
+        }
+        if (counterContainer) {
+          counterContainer.innerHTML = visitCount;
+        }
+      });
+    </script>
+  </body>
+</html>
